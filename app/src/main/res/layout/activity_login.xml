@@ -11,7 +11,7 @@
     android:paddingTop="@dimen/activity_vertical_margin"
     tools:context=".activities.LoginActivity">
 
-    <!-- Login progress -->
+    <!-- LoginService progress -->
     <ProgressBar
         android:id="@+id/login_progress"
         style="?android:attr/progressBarStyleLarge"
@@ -68,12 +68,14 @@
             </android.support.design.widget.TextInputLayout>
 
             <Button
-                android:id="@+id/email_sign_in_button"
+                android:id="@+id/login_button"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="16dp"
-                android:text="@string/action_sign_in"
-                android:textStyle="bold" />
+                android:layout_marginBottom="10dp"
+                android:layout_marginLeft="40dp"
+                android:layout_marginRight="40dp"
+                android:layout_marginTop="10dp"
+                android:text="@string/login_button" />
 
             <TextView
                 android:id="@+id/textView_register_clickable"
@@ -85,6 +87,7 @@
                 android:text="@string/register_an_account"
                 android:textSize="18sp"
                 />
+
 
 
         </LinearLayout>

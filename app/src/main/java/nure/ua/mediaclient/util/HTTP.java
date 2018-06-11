@@ -2,6 +2,6 @@ package nure.ua.mediaclient.util;
 
 public interface HTTP {
 
-    String URI = "https://localhost:8080/";
+    String URI = "http://192.168.0.105:8080/";
 
 }

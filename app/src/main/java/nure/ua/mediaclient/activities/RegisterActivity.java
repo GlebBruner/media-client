@@ -1,5 +1,6 @@
 package nure.ua.mediaclient.activities;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
@@ -10,15 +11,21 @@ import android.widget.EditText;
 import android.widget.Spinner;
 import android.widget.Toast;
 
+import java.net.HttpURLConnection;
+
 import nure.ua.mediaclient.R;
 import nure.ua.mediaclient.model.UserDTO;
-import nure.ua.mediaclient.service.Registration;
+import nure.ua.mediaclient.service.RegistrationService;
 import nure.ua.mediaclient.util.Countries;
 import nure.ua.mediaclient.util.HTTP;
 import nure.ua.mediaclient.util.validator.EmailValidator;
 import nure.ua.mediaclient.util.validator.NameValidator;
 import nure.ua.mediaclient.util.validator.PasswordValidator;
+
 import okhttp3.OkHttpClient;
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
 import retrofit2.Retrofit;
 import retrofit2.converter.jackson.JacksonConverterFactory;
 
@@ -72,6 +79,7 @@ public class RegisterActivity extends AppCompatActivity {
                         .client(httpClient.build())
                         .build();
 
+                RegistrationService registration = retrofit.create(RegistrationService.class);
 
                 UserDTO userDTO = new UserDTO();
                 userDTO.setEmail(emailEdit.getText().toString());
@@ -80,14 +88,35 @@ public class RegisterActivity extends AppCompatActivity {
                 userDTO.setSurname(surnameEdit.getText().toString());
                 userDTO.setCoutry(countrySpinner.getSelectedItem().toString());
 
-                Registration registration = retrofit.create(Registration.class);
+                Call<Object> call = registration.registerUser(userDTO);
 
-                registration.registerUser(userDTO);
+                call.enqueue(new Callback<Object>() {
 
+                    @Override
+                    public void onResponse(Call<Object> call, Response<Object> response) {
+                        if (response.isSuccessful()) {
+                            startActivity(new Intent(RegisterActivity.this, LoginActivity.class));
+                        } else {
+                            switch (response.code()) {
+                                case HttpURLConnection.HTTP_CONFLICT:
+                                    Toast userExistsToast = Toast.makeText(getApplicationContext(),
+                                            "User with specified email or password already exists",
+                                            Toast.LENGTH_SHORT);
+                                    userExistsToast.show();
+                            }
+
+                        }
+                    }
+
+                    @Override
+                    public void onFailure(Call<Object> call, Throwable t) {
+                        Toast failOccuredToast = Toast.makeText(getApplicationContext(),
+                                t.getMessage(), Toast.LENGTH_LONG);
+                        failOccuredToast.show();
+                    }
+
+                });
             }
         });
-
-
-
     }
 }

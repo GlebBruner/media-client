@@ -5,9 +5,11 @@ import retrofit2.Call;
 import retrofit2.http.Body;
 import retrofit2.http.POST;
 
-public interface Registration {
+public interface RegistrationService {
 
-    @POST("api/auth/registration")
-    Call<Object> registerUser(@Body UserDTO userDTO);
+    @POST("api/auth/signup")
+    Call<Object> registerUser(
+            @Body UserDTO userDTO
+    );
 
 }
