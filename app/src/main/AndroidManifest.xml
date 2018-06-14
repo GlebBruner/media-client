@@ -31,6 +31,10 @@
             android:name=".activities.FeedActivity"
             android:label="Feed">
         </activity>
+        <activity
+            android:name=".activities.CreateOrderActivity">
+
+        </activity>
 
     </application>
 
