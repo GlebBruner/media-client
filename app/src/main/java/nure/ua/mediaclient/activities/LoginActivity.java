@@ -100,6 +100,8 @@ public class LoginActivity extends AppCompatActivity implements LoaderCallbacks<
                                     preferences.getString(SharedProperties.TOKEN, "Ooops, nothing is there"), Toast.LENGTH_LONG);
                             toast.show();
 
+                            startActivity(new Intent(LoginActivity.this, FeedActivity.class));
+
                         } else {
 
 
