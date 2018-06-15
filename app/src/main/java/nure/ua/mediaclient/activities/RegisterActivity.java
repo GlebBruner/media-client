@@ -16,7 +16,7 @@ import java.net.HttpURLConnection;
 import nure.ua.mediaclient.R;
 import nure.ua.mediaclient.model.UserDTO;
 import nure.ua.mediaclient.service.RegistrationService;
-import nure.ua.mediaclient.util.Countries;
+import nure.ua.mediaclient.util.SpinnerBodies;
 import nure.ua.mediaclient.util.HTTP;
 import nure.ua.mediaclient.util.validator.EmailValidator;
 import nure.ua.mediaclient.util.validator.NameValidator;
@@ -53,7 +53,7 @@ public class RegisterActivity extends AppCompatActivity {
         registerButton = findViewById(R.id.register_button);
 
 
-        ArrayAdapter<String> countrySprinnerAdapter = new ArrayAdapter<>(this, android.R.layout.simple_spinner_item, Countries.getAllCountries());
+        ArrayAdapter<String> countrySprinnerAdapter = new ArrayAdapter<>(this, android.R.layout.simple_spinner_item, SpinnerBodies.getAllCountries());
         countrySprinnerAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         countrySpinner.setAdapter(countrySprinnerAdapter);
 

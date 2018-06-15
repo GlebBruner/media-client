@@ -26,6 +26,9 @@
     <string name="feed_best_tab">Best</string>
     <string name="feed_discussed_tab">Discussing</string>
 
+    <!--SECTION FRO ORDER CREATE-->
+    <string name="oc_wtitle">Title</string>
+    <string name="oc_button_create">Create</string>
 
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>

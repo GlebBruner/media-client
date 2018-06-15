@@ -1,9 +1,12 @@
 package nure.ua.mediaclient.activities;
 
+
 import android.content.res.Resources;
+
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
+import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.TabLayout;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.RecyclerView;
@@ -12,6 +15,7 @@ import android.util.ArrayMap;
 
 import java.util.Comparator;
 import java.util.Map;
+
 import java.util.Objects;
 
 import nure.ua.mediaclient.R;
@@ -25,7 +29,9 @@ import nure.ua.mediaclient.model.ui.OrderUi;
 public class FeedActivity extends AppCompatActivity {
 
     private TabLayout tabLayout;
+
     private OrdersActivityAdapter adapter;
+
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -62,9 +68,11 @@ public class FeedActivity extends AppCompatActivity {
 
             @Override
             public void onTabReselected(final TabLayout.Tab tab) {
+
             }
         });
     }
+
 
     @NonNull
     private Map<String, Comparator<OrderUi>> mapComparatorsToMessages(final Resources resources) {
