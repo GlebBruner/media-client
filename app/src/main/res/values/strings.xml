@@ -32,4 +32,8 @@
 
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="tab_new_feed_activity">New</string>
+    <string name="tab_hot_feed_activity">Hot</string>
+    <string name="tab_discussed_feed_activity">Discussed</string>
+    <string name="tab_best_feed_activity">Best</string>
 </resources>
