@@ -1,0 +1,46 @@
+{
+  "project_info": {
+    "project_number": "375550275015",
+    "firebase_url": "https://mediaclient-5ba89.firebaseio.com",
+    "project_id": "mediaclient-5ba89",
+    "storage_bucket": "mediaclient-5ba89.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:375550275015:android:0baff2bc474809d6",
+        "android_client_info": {
+          "package_name": "nure.ua.mediaclient"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "375550275015-ppdbe64fdjjnjbu7q1op4f7pdgp449vp.apps.googleusercontent.com",
+          "client_type": 3
+        },
+        {
+          "client_id": "375550275015-ppdbe64fdjjnjbu7q1op4f7pdgp449vp.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDG5DVqq90B_uupq8IgJBTq5nVR3856eBY"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

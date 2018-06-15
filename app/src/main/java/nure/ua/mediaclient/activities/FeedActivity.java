@@ -1,8 +1,8 @@
 package nure.ua.mediaclient.activities;
 
 
+import android.content.Intent;
 import android.content.res.Resources;
-
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
@@ -12,10 +12,10 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
 import android.util.ArrayMap;
+import android.view.View;
 
 import java.util.Comparator;
 import java.util.Map;
-
 import java.util.Objects;
 
 import nure.ua.mediaclient.R;
@@ -31,6 +31,7 @@ public class FeedActivity extends AppCompatActivity {
     private TabLayout tabLayout;
 
     private OrdersActivityAdapter adapter;
+    private FloatingActionButton createOrderFab;
 
 
     @Override
@@ -41,12 +42,26 @@ public class FeedActivity extends AppCompatActivity {
         adapter = new OrdersActivityAdapter(orderUi -> {
 
         }, this.getResources());
+
+
+
         final RecyclerView recyclerView = findViewById(R.id.content_list);
         recyclerView.setAdapter(this.adapter);
         final Toolbar toolbar = findViewById(R.id.toolbar);
         this.setSupportActionBar(toolbar);
         Objects.requireNonNull(getSupportActionBar()).setDisplayHomeAsUpEnabled(true);
         this.fillTabLayout();
+
+        createOrderFab = findViewById(R.id.fab);
+
+        createOrderFab.setOnClickListener(new View.OnClickListener() {
+
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(FeedActivity.this, CreateOrderActivity.class));
+            }
+
+        });
     }
 
     private void fillTabLayout() {
