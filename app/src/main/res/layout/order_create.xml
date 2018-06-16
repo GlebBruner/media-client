@@ -5,8 +5,8 @@
     android:id="@+id/scroll_view_co"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
     android:fillViewport="true"
+    android:orientation="vertical"
     tools:context=".activities.CreateOrderActivity">
 
     <android.support.constraint.ConstraintLayout
@@ -26,44 +26,74 @@
         </android.support.v7.widget.Toolbar>-->
 
         <TextView
-            android:id="@+id/textView9"
-            android:layout_width="352dp"
-            android:layout_height="28dp"
+            android:id="@+id/text_view_all_hashtags"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
             android:layout_marginEnd="8dp"
             android:layout_marginStart="8dp"
             android:layout_marginTop="16dp"
-            android:text="@string/hashtags_tw_oc"
-            android:textAlignment="center"
+            android:textColor="@android:color/black"
+            android:textSize="24sp"
+            app:layout_constraintEnd_toStartOf="@id/action_delete_hashtag"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:text="#Boiii #Shieeeeeet" />
+
+        <ImageView
+            android:id="@+id/action_delete_hashtag"
+            android:layout_width="36dp"
+            android:layout_height="36dp"
+            android:layout_marginEnd="16dp"
+            android:src="@drawable/ic_close_black_24dp"
+            app:layout_constraintBottom_toBottomOf="@id/text_view_all_hashtags"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="@id/text_view_all_hashtags" />
+
+        <EditText
+            android:id="@+id/input_hashtag"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:hint="@string/hashtags_tw_oc"
+            android:textSize="24sp"
+            app:layout_constraintEnd_toStartOf="@id/action_add_hashtag"
+            app:layout_constraintStart_toStartOf="@id/text_view_all_hashtags"
+            app:layout_constraintTop_toBottomOf="@id/text_view_all_hashtags" />
+
+        <ImageView
+            android:id="@+id/action_add_hashtag"
+            android:layout_width="36dp"
+            android:layout_height="36dp"
+            android:layout_marginEnd="16dp"
+            android:src="@drawable/ic_plus_one_black_24dp"
+            app:layout_constraintBottom_toBottomOf="@id/input_hashtag"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="@id/input_hashtag" />
+
+        <EditText
+            android:id="@+id/input_descriptioin"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="8dp"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="24dp"
+            android:hint="@string/description_tw_oc"
             android:textSize="24sp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/view" />
+            app:layout_constraintTop_toBottomOf="@+id/input_hashtag" />
 
-        <TextView
-            android:id="@+id/textView10"
-            android:layout_width="352dp"
-            android:layout_height="33dp"
-            android:layout_marginEnd="8dp"
-            android:layout_marginStart="8dp"
-            android:layout_marginTop="16dp"
-            android:text="@string/description_tw_oc"
-            android:textAlignment="center"
-            android:textSize="24sp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/view5" />
-
-        <View
-            android:id="@+id/view2"
-            android:layout_width="350dp"
-            android:layout_height="1dp"
-            android:layout_marginEnd="8dp"
-            android:layout_marginStart="8dp"
-            android:layout_marginTop="16dp"
-            android:background="@android:color/black"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/oc_dl_date" />
+        <!--<View-->
+        <!--android:id="@+id/view2"-->
+        <!--android:layout_width="350dp"-->
+        <!--android:layout_height="1dp"-->
+        <!--android:layout_marginEnd="8dp"-->
+        <!--android:layout_marginStart="8dp"-->
+        <!--android:layout_marginTop="16dp"-->
+        <!--android:background="@android:color/black"-->
+        <!--app:layout_constraintEnd_toEndOf="parent"-->
+        <!--app:layout_constraintStart_toStartOf="parent"-->
+        <!--app:layout_constraintTop_toBottomOf="@+id/oc_dl_date" />-->
 
         <Spinner
             android:id="@+id/oc_spinner_ph"
@@ -184,18 +214,19 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/textView" />
 
-        <EditText
-            android:id="@+id/oc_hashtags"
-            android:layout_width="355dp"
-            android:layout_height="40dp"
-            android:layout_marginEnd="8dp"
-            android:layout_marginStart="8dp"
-            android:layout_marginTop="8dp"
-            android:ems="10"
-            android:inputType="textPersonName"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/textView9" />
+        <!--<EditText-->
+        <!--android:id="@+id/oc_hashtags"-->
+        <!--android:layout_width="355dp"-->
+        <!--android:layout_height="44dp"-->
+        <!--android:layout_marginEnd="8dp"-->
+        <!--android:layout_marginStart="8dp"-->
+        <!--android:layout_marginTop="240dp"-->
+        <!--android:ems="10"-->
+        <!--android:inputType="textPersonName"-->
+        <!--app:layout_constraintEnd_toEndOf="parent"-->
+        <!--app:layout_constraintHorizontal_bias="0.538"-->
+        <!--app:layout_constraintStart_toStartOf="parent"-->
+        <!--app:layout_constraintTop_toBottomOf="@+id/input_hashtag" />-->
 
         <EditText
             android:id="@+id/oc_title"
@@ -207,46 +238,45 @@
             android:ems="10"
             android:inputType="textPersonName"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.694"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/textView6" />
 
-        <View
-            android:id="@+id/view"
-            android:layout_width="350dp"
-            android:layout_height="1dp"
-            android:layout_marginEnd="8dp"
-            android:layout_marginStart="8dp"
-            android:layout_marginTop="16dp"
-            android:background="@android:color/black"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/oc_money" />
+        <!--<View-->
+        <!--android:id="@+id/view"-->
+        <!--android:layout_width="350dp"-->
+        <!--android:layout_height="1dp"-->
+        <!--android:layout_marginEnd="8dp"-->
+        <!--android:layout_marginStart="8dp"-->
+        <!--android:layout_marginTop="16dp"-->
+        <!--android:background="@android:color/black"-->
+        <!--app:layout_constraintEnd_toEndOf="parent"-->
+        <!--app:layout_constraintStart_toStartOf="parent"-->
+        <!--app:layout_constraintTop_toBottomOf="@+id/oc_money" />-->
 
-        <View
-            android:id="@+id/view5"
-            android:layout_width="350dp"
-            android:layout_height="1dp"
-            android:layout_marginEnd="8dp"
-            android:layout_marginStart="8dp"
-            android:layout_marginTop="8dp"
-            android:background="@android:color/black"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.4"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/all_hashtags" />
+        <!--<View-->
+        <!--android:id="@+id/view5"-->
+        <!--android:layout_width="350dp"-->
+        <!--android:layout_height="1dp"-->
+        <!--android:layout_marginEnd="8dp"-->
+        <!--android:layout_marginStart="8dp"-->
+        <!--android:layout_marginTop="8dp"-->
+        <!--android:background="@android:color/black"-->
+        <!--app:layout_constraintEnd_toEndOf="parent"-->
+        <!--app:layout_constraintHorizontal_bias="0.4"-->
+        <!--app:layout_constraintStart_toStartOf="parent"-->
+        <!--app:layout_constraintTop_toBottomOf="@+id/all_hashtags" />-->
 
-        <View
-            android:id="@+id/view3"
-            android:layout_width="350dp"
-            android:layout_height="1dp"
-            android:layout_marginEnd="8dp"
-            android:layout_marginStart="8dp"
-            android:layout_marginTop="16dp"
-            android:background="@android:color/black"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/oc_spinner_ph" />
+        <!--<View-->
+        <!--android:id="@+id/view3"-->
+        <!--android:layout_width="350dp"-->
+        <!--android:layout_height="1dp"-->
+        <!--android:layout_marginEnd="8dp"-->
+        <!--android:layout_marginStart="8dp"-->
+        <!--android:layout_marginTop="16dp"-->
+        <!--android:background="@android:color/black"-->
+        <!--app:layout_constraintEnd_toEndOf="parent"-->
+        <!--app:layout_constraintStart_toStartOf="parent"-->
+        <!--app:layout_constraintTop_toBottomOf="@+id/oc_spinner_ph" />-->
 
         <EditText
             android:id="@+id/oc_dl_date"
@@ -295,20 +325,6 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/textView7" />
 
-        <Button
-            android:id="@+id/oc_button_add_hashtag"
-            android:layout_width="46dp"
-            android:layout_height="wrap_content"
-            android:layout_marginBottom="8dp"
-            android:layout_marginEnd="16dp"
-            android:layout_marginStart="80dp"
-            android:layout_marginTop="8dp"
-            android:text="@string/button_add_ht_oc"
-            app:layout_constraintBottom_toTopOf="@+id/all_hashtags"
-            app:layout_constraintEnd_toStartOf="@+id/delete_hashtag"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/oc_hashtags" />
-
         <EditText
             android:id="@+id/oc_descr"
             android:layout_width="355dp"
@@ -321,43 +337,21 @@
             android:inputType="textPersonName"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/textView10" />
+            app:layout_constraintTop_toBottomOf="@+id/input_descriptioin" />
 
         <Button
             android:id="@+id/oc_button_create"
-            android:layout_width="wrap_content"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginEnd="8dp"
             android:layout_marginStart="8dp"
             android:layout_marginTop="8dp"
+            android:fontFamily=""
             android:text="@string/oc_button_create"
+            android:textSize="20sp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/oc_descr" />
-
-        <TextView
-            android:id="@+id/all_hashtags"
-            android:layout_width="355dp"
-            android:layout_height="30dp"
-            android:layout_marginBottom="8dp"
-            android:layout_marginEnd="8dp"
-            android:layout_marginStart="8dp"
-            app:layout_constraintBottom_toTopOf="@+id/view5"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.0"
-            app:layout_constraintStart_toStartOf="parent" />
-
-        <Button
-            android:id="@+id/delete_hashtag"
-            android:layout_width="41dp"
-            android:layout_height="45dp"
-            android:layout_marginBottom="8dp"
-            android:layout_marginEnd="32dp"
-            android:layout_marginTop="8dp"
-            android:text="@string/delete_ht_oc"
-            app:layout_constraintBottom_toTopOf="@+id/all_hashtags"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/oc_hashtags" />
 
     </android.support.constraint.ConstraintLayout>
 

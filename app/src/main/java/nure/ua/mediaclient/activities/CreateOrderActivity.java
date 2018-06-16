@@ -54,12 +54,12 @@ public class CreateOrderActivity extends AppCompatActivity {
         descr = findViewById(R.id.oc_descr);
         fieldForAddHashtag = findViewById(R.id.oc_hashtags);
         createButton = findViewById(R.id.oc_button_create);
-        addHashtag = findViewById(R.id.oc_button_add_hashtag);
+        addHashtag = findViewById(R.id.action_add_hashtag);
         categorySpinner = findViewById(R.id.oc_spinner_cat);
         photoSpinner = findViewById(R.id.oc_spinner_ph);
         videoSpinner = findViewById(R.id.oc_spinner_vid);
-        allHashtagsView = findViewById(R.id.all_hashtags);
-        deleteHashtag = findViewById(R.id.delete_hashtag);
+        allHashtagsView = findViewById(R.id.text_view_all_hashtags);
+        deleteHashtag = findViewById(R.id.action_delete_hashtag);
 
 
         hashtagsList = new ArrayList<>();
