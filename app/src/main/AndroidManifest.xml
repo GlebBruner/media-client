@@ -13,7 +13,7 @@
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
-        android:theme="@style/MyMaterialTheme">
+        android:theme="@style/AppTheme">
         <activity
             android:name=".activities.LoginActivity">
             <!--android:label="@string/app_name">-->
@@ -29,18 +29,18 @@
         </activity>
         <activity
             android:name=".activities.FeedActivity"
-            android:label="Feed">
+            android:label="@string/feed_activity_name">
         </activity>
         <activity
             android:name=".activities.CreateOrderActivity">
-
         </activity>
 
-        <meta-data
+        <!--<meta-data
             android:name="com.google.android.geo.API_KEY"
-            android:value="AIzaSyCf4UjDrdApEA_8f0ZDteDk28pNeWwx0mo"/>
+            android:value="AIzaSyCf4UjDrdApEA_8f0ZDteDk28pNeWwx0mo"/>-->
 
 
     </application>
+
 
 </manifest>

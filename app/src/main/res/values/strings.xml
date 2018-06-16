@@ -36,4 +36,20 @@
     <string name="tab_hot_feed_activity">Hot</string>
     <string name="tab_discussed_feed_activity">Discussed</string>
     <string name="tab_best_feed_activity">Best</string>
+    <string name="feed_activity_name">Feed</string>
+    <string name="hashtags_tw_oc">Hashtags:</string>
+    <string name="description_tw_oc">Description:</string>
+    <string name="video_tw_oc">Video:</string>
+    <string name="category_tw_oc">Category:</string>
+    <string name="photo_tw_oc">Photo:</string>
+    <string name="deadline_tw_oc">Deadline:</string>
+    <string name="private_tw_oc">Private?</string>
+    <string name="cost_tw_oc">Cost:</string>
+    <string name="title_tw_oc">Title:</string>
+    <string name="date_hint_oc">date</string>
+    <string name="time_hint_oc">time</string>
+    <string name="money_hint_oc">money</string>
+    <string name="button_add_ht_oc">+</string>
+    <string name="add_more_info_hint_oc">add more info</string>
+    <string name="delete_ht_oc">x</string>
 </resources>
