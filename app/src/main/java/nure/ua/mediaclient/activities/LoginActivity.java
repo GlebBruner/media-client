@@ -95,11 +95,6 @@ public class LoginActivity extends AppCompatActivity implements LoaderCallbacks<
                             SharedPreferences.Editor preferencesEditor = preferences.edit();
                             preferencesEditor.putString(SharedProperties.TOKEN, token);
                             preferencesEditor.apply();
-
-                            Toast toast = Toast.makeText(getApplicationContext(),
-                                    preferences.getString(SharedProperties.TOKEN, "Ooops, nothing is there"), Toast.LENGTH_LONG);
-                            toast.show();
-
                             startActivity(new Intent(LoginActivity.this, FeedActivity.class));
 
                         } else {

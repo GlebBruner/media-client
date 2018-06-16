@@ -52,4 +52,5 @@
     <string name="button_add_ht_oc">+</string>
     <string name="add_more_info_hint_oc">add more info</string>
     <string name="delete_ht_oc">x</string>
+    <string name="checkbox_private">CheckBox</string>
 </resources>

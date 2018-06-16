@@ -1,11 +1,11 @@
-package nure.ua.mediaclient.model.ui;
+package nure.ua.mediaclient.model;
+
+import android.graphics.Point;
 
 import java.util.Date;
 import java.util.Set;
 
-import nure.ua.mediaclient.model.domain.Point;
-
-public class OrderUi {
+public class OrderDTO {
 
     private String title;
     private boolean isPaid;
@@ -17,11 +17,10 @@ public class OrderUi {
     private Set<String> categories;
     private int likes;
     private int dislikes;
-    private Point location;
+    private nure.ua.mediaclient.model.domain.Point location;
     private Date creationDate;
     private Date deadline;
     private float money;
-    private String fullName;
 
     public String getTitle() {
         return title;
@@ -103,11 +102,11 @@ public class OrderUi {
         this.dislikes = dislikes;
     }
 
-    public Point getLocation() {
+    public nure.ua.mediaclient.model.domain.Point getLocation() {
         return location;
     }
 
-    public void setLocation(Point location) {
+    public void setLocation(nure.ua.mediaclient.model.domain.Point location) {
         this.location = location;
     }
 
@@ -133,13 +132,5 @@ public class OrderUi {
 
     public void setMoney(float money) {
         this.money = money;
-    }
-
-    public String getFullName() {
-        return fullName;
-    }
-
-    public void setFullName(String fullName) {
-        this.fullName = fullName;
     }
 }

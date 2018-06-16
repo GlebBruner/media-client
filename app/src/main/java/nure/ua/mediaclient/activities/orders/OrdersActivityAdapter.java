@@ -1,15 +1,23 @@
 package nure.ua.mediaclient.activities.orders;
 
+import android.app.Fragment;
 import android.content.res.Resources;
 import android.support.annotation.NonNull;
+import android.support.v7.widget.CardView;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.TextView;
+
+import com.google.android.gms.maps.GoogleMap;
+import com.google.android.gms.maps.MapFragment;
 
 import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.Collection;
 import java.util.Comparator;
+import java.util.Date;
 import java.util.List;
 
 import nure.ua.mediaclient.R;
@@ -23,30 +31,75 @@ public class OrdersActivityAdapter extends RecyclerView.Adapter<OrdersActivityAd
     private final Resources resources;
     private Comparator<OrderUi> orderUiComparator = new NullObjectComparator();
 
-    public OrdersActivityAdapter(final List<OrderUi> orders, final OnOrderClickListener onOrderClickListener, final Resources resources) {
+    private Fragment fragment;
+
+    public OrdersActivityAdapter(final List<OrderUi> orders, final OnOrderClickListener onOrderClickListener, final Resources resources, Fragment fragment) {
         this.orders = orders;
         this.onOrderClickListener = onOrderClickListener;
         this.resources = resources;
+
+        this.fragment = fragment;
     }
 
-    public OrdersActivityAdapter(final OnOrderClickListener onOrderClickListener, final Resources resources) {
+    public OrdersActivityAdapter(final OnOrderClickListener onOrderClickListener, final Resources resources, Fragment fragment) {
         this.resources = resources;
         this.orders = new ArrayList<>(0);
         this.onOrderClickListener = onOrderClickListener;
+
+        this.fragment = fragment;
     }
 
     @NonNull
     @Override
     public OrderHolder onCreateViewHolder(@NonNull final ViewGroup parent, final int viewType) {
-        final View inflate = LayoutInflater.from(parent.getContext()).inflate(R.layout.item_order, parent, false);
-        final OrderHolder holder = new OrderHolder(inflate);
+        final View inflate = LayoutInflater.from(parent.getContext()).inflate(R.layout.single_order, parent, false);
+        final OrderHolder holder = new OrderHolder(inflate, fragment);
         holder.itemView.setOnClickListener(view -> this.onOrderClickListener.onClick(this.orders.get(holder.getAdapterPosition())));
         return holder;
     }
 
     @Override
     public void onBindViewHolder(@NonNull final OrderHolder holder, final int position) {
-        // TODO: 6/14/2018 binding data
+        holder.fullname.setText(orders.get(position).getFullName());
+        holder.title.setText(orders.get(position).getTitle());
+        holder.description.setText(orders.get(position).getDescription());
+
+        Date date = orders.get(position).getDeadline();
+        Calendar calendar = Calendar.getInstance();
+        calendar.setTime(date);
+
+        String dateDeadLineYear = String.valueOf(calendar.get(Calendar.YEAR));
+        String dateDeadLineMonth = String.valueOf(calendar.get(Calendar.MONTH + 1));
+        String dateDeadLineDay = String.valueOf(calendar.get(Calendar.DAY_OF_MONTH));
+        String timeDeadLineHour = String.valueOf(calendar.get(Calendar.HOUR_OF_DAY));
+        String timeDeadLineMinute = String.valueOf(calendar.get(Calendar.MINUTE));
+
+        holder.dateDL.setText(dateDeadLineDay + " " + dateDeadLineMonth + " " + dateDeadLineYear);
+        holder.timeDL.setText(timeDeadLineHour + " " + timeDeadLineMinute);
+
+
+        holder.phoroCount.setText(String.valueOf(orders.get(position).getPhotoCount()));
+        holder.videoCount.setText(String.valueOf(orders.get(position).getVideoCount()));
+        holder.money.setText(String.valueOf(orders.get(position).getMoney()));
+        holder.rating.setText(String.valueOf(orders.get(position).getLikes() - orders.get(position).getDislikes()));
+
+        StringBuilder hashtags = new StringBuilder();
+        StringBuilder category = new StringBuilder();
+        for (String hashtag : orders.get(position).getHashtags()) {
+            hashtags.append(" ").append(hashtag);
+        }
+
+        for (String categoryy: orders.get(position).getCategories()) {
+            category.append(category);
+        }
+
+
+        holder.hashtags.setText(hashtags.toString());
+
+        holder.category.setText(category.toString());
+
+
+        //todo MAP POINT ADD
     }
 
     @Override
@@ -68,8 +121,47 @@ public class OrdersActivityAdapter extends RecyclerView.Adapter<OrdersActivityAd
 
     static class OrderHolder extends RecyclerView.ViewHolder {
 
-        OrderHolder(final View itemView) {
+        CardView cv;
+        TextView fullname;
+        TextView category;
+        TextView title;
+        TextView description;
+        TextView dateDL;
+        TextView timeDL;
+        TextView phoroCount;
+        TextView videoCount;
+        TextView money;
+        TextView hashtags;
+        TextView rating;
+        TextView comments;
+
+        Fragment fragment;
+        MapFragment mapFragment;
+
+
+        OrderHolder(final View itemView, Fragment fragment) {
+
             super(itemView);
+
+            this.fragment = fragment;
+
+            cv = itemView.findViewById(R.id.single_item);
+            fullname = itemView.findViewById(R.id.user_name_so);
+            category = itemView.findViewById(R.id.category_so);
+            title = itemView.findViewById(R.id.title_so);
+            description = itemView.findViewById(R.id.descr_so);
+            dateDL = itemView.findViewById(R.id.datedl_so);
+            timeDL = itemView.findViewById(R.id.timedl_so);
+            phoroCount = itemView.findViewById(R.id.photocount_so);
+            videoCount = itemView.findViewById(R.id.vidcount_so);
+            money = itemView.findViewById(R.id.moneycount_so);
+            hashtags = itemView.findViewById(R.id.hashtags_so);
+            rating = itemView.findViewById(R.id.rating_so2);
+            comments = itemView.findViewById(R.id.comments_so);
+            mapFragment = (MapFragment) fragment.getChildFragmentManager().findFragmentById(R.id.map_so);
+//            mapFragment = itemView.findViewById(R.id.map_so);
+
+
         }
     }
 }
