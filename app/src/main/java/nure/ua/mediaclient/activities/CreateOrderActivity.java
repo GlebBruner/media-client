@@ -12,6 +12,7 @@ import android.os.Bundle;
 import android.os.Looper;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
+import android.support.constraint.ConstraintLayout;
 import android.support.v4.app.ActivityCompat;
 import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AppCompatActivity;
@@ -19,6 +20,7 @@ import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.EditText;
+import android.widget.ScrollView;
 import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -43,6 +45,8 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 
+import butterknife.BindView;
+import butterknife.ButterKnife;
 import nure.ua.mediaclient.R;
 import nure.ua.mediaclient.model.OrderDTO;
 import nure.ua.mediaclient.model.domain.Point;
@@ -63,6 +67,51 @@ public class CreateOrderActivity extends AppCompatActivity {
     private static final int MY_PERMISSIONS_REQUEST_LOCATION = 99;
     private static final int LOCATION_UPDATE_INTERVAL_DEFAULT = 30000;
     private static final int ZOOM_DEFAULT = 11;
+
+    @BindView(R.id.vid_spinner)
+    Spinner vidSpinner;
+    @BindView(R.id.videocount_co)
+    TextView videocountCo;
+    @BindView(R.id.photocount_co)
+    TextView photocountCo;
+    @BindView(R.id.categor_co)
+    TextView categorCo;
+    @BindView(R.id.deadline_tv_co)
+    TextView deadlineTvCo;
+    @BindView(R.id.ph_spinner)
+    Spinner phSpinner;
+    @BindView(R.id.cat_spinner)
+    Spinner catSpinner;
+    @BindView(R.id.titleedit_co)
+    EditText titleeditCo;
+    @BindView(R.id.date_co)
+    EditText dateCo;
+    @BindView(R.id.time_co)
+    EditText timeCo;
+    @BindView(R.id.money_co)
+    EditText moneyCo;
+    @BindView(R.id.private_tv_co)
+    TextView privateTvCo;
+    @BindView(R.id.money_tv_co)
+    TextView moneyTvCo;
+    @BindView(R.id.private_check_co)
+    CheckBox privateCheckCo;
+    @BindView(R.id.hashtags_co)
+    EditText hashtagsCo;
+    @BindView(R.id.add_hash_co)
+    Button addHashCo;
+    @BindView(R.id.delete_hash_co)
+    Button deleteHashCo;
+    @BindView(R.id.descr_edit_co)
+    EditText descrEditCo;
+    @BindView(R.id.createorder_co)
+    Button createorderCo;
+    @BindView(R.id.hashview_co)
+    TextView hashviewCo;
+    @BindView(R.id.constraint_co)
+    ConstraintLayout constraintCo;
+    @BindView(R.id.scroll_view_co)
+    ScrollView scrollViewCo;
 
     private EditText title;
     private EditText dateDL;
@@ -104,6 +153,7 @@ public class CreateOrderActivity extends AppCompatActivity {
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         this.setContentView(R.layout.order_create);
+        ButterKnife.bind(this); //вместо того, чтобы байндить айдишники руками
         this.fusedLocationProviderClient = LocationServices.getFusedLocationProviderClient(this);
         this.preferences = this.getSharedPreferences(SharedProperties.APP_PREFERENCES, Context.MODE_PRIVATE);
         this.initializeNetworkClient();
@@ -118,14 +168,12 @@ public class CreateOrderActivity extends AppCompatActivity {
                 SpinnerBodies.getAllCategories());
         categoriesSpinnerAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         this.categorySpinner.setAdapter(categoriesSpinnerAdapter);
-
         final ArrayAdapter<Integer> photoVideoAdatper = new ArrayAdapter<>(this,
                 android.R.layout.simple_spinner_item,
                 SpinnerBodies.getIntegersForPhotoAndVideo());
         photoVideoAdatper.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         this.photoSpinner.setAdapter(photoVideoAdatper);
         this.videoSpinner.setAdapter(photoVideoAdatper);
-
         this.dateDL.setOnClickListener(view -> this.showDatePickingDialog());
         this.timeDL.setOnClickListener(view -> this.showTimePickingDialog());
         this.addHashtag.setOnClickListener(view -> this.addHashTag());
@@ -137,7 +185,6 @@ public class CreateOrderActivity extends AppCompatActivity {
         final boolean paid = this.money.getText() != null && this.money.getText().toString().equals("0");
         final Set<String> categories = new HashSet<>();
         categories.add(this.categorySpinner.getSelectedItem().toString());
-
         final OrderDTO dto = new OrderDTO(
                 this.from(this.title),
                 paid,
@@ -154,9 +201,11 @@ public class CreateOrderActivity extends AppCompatActivity {
                 this.calendarForDeadLine.getTime(),
                 paid ? Float.parseFloat(this.money.getText().toString()) : 0.0f
         );
+        this.performOrderCreationRequest(dto);
+    }
 
+    private void performOrderCreationRequest(OrderDTO dto) {
         Call<List<OrderDTO>> call = this.orderService.createOrder(dto);
-
         call.enqueue(new Callback<List<OrderDTO>>() {
 
             @Override
