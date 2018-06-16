@@ -53,4 +53,9 @@
     <string name="add_more_info_hint_oc">add more info</string>
     <string name="delete_ht_oc">x</string>
     <string name="checkbox_private">CheckBox</string>
+    <string name="rationale_location_permission_dialog_title">Location Permission Needed</string>
+    <string name="rationale_location_permission_dialog_message">This app needs the Location permission, please accept to use location functionality</string>
+    <string name="ok">OK</string>
+    <string name="chosen_date_content">%d %d %d</string>
+    <string name="chosen_time_content">%d:%d</string>
 </resources>

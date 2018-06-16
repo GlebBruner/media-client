@@ -1,11 +1,14 @@
 package nure.ua.mediaclient.model;
 
-import android.graphics.Point;
-
 import java.util.Date;
 import java.util.Set;
 
+import nure.ua.mediaclient.model.domain.Point;
+
 public class OrderDTO {
+
+    public static final int NO_LIKES = 0;
+    public static final int NO_DISLIKES = 0;
 
     private String title;
     private boolean isPaid;
@@ -17,10 +20,43 @@ public class OrderDTO {
     private Set<String> categories;
     private int likes;
     private int dislikes;
-    private nure.ua.mediaclient.model.domain.Point location;
+    private Point location;
     private Date creationDate;
     private Date deadline;
     private float money;
+
+    public OrderDTO() {
+    }
+
+    public OrderDTO(String title,
+                    boolean isPaid,
+                    boolean isPrivate,
+                    String description,
+                    int photoCount,
+                    int videoCount,
+                    Set<String> hashtags,
+                    Set<String> categories,
+                    int likes,
+                    int dislikes,
+                    Point location,
+                    Date creationDate,
+                    Date deadline,
+                    float money) {
+        this.title = title;
+        this.isPaid = isPaid;
+        this.isPrivate = isPrivate;
+        this.description = description;
+        this.photoCount = photoCount;
+        this.videoCount = videoCount;
+        this.hashtags = hashtags;
+        this.categories = categories;
+        this.likes = likes;
+        this.dislikes = dislikes;
+        this.location = location;
+        this.creationDate = creationDate;
+        this.deadline = deadline;
+        this.money = money;
+    }
 
     public String getTitle() {
         return title;

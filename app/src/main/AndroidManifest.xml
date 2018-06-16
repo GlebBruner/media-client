@@ -35,8 +35,8 @@
             android:label="@string/feed_activity_name">
         </activity>
         <activity
-            android:name=".activities.CreateOrderActivity">
-        </activity>
+            android:name=".activities.CreateOrderActivity"
+            android:screenOrientation="portrait" />
 
         <meta-data
             android:name="com.google.android.geo.API_KEY"
