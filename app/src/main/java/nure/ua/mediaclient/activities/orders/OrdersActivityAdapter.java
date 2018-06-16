@@ -33,27 +33,25 @@ public class OrdersActivityAdapter extends RecyclerView.Adapter<OrdersActivityAd
 
     private Fragment fragment;
 
-    public OrdersActivityAdapter(final List<OrderUi> orders, final OnOrderClickListener onOrderClickListener, final Resources resources, Fragment fragment) {
+    public OrdersActivityAdapter(final List<OrderUi> orders, final OnOrderClickListener onOrderClickListener, final Resources resources) {
         this.orders = orders;
         this.onOrderClickListener = onOrderClickListener;
         this.resources = resources;
 
-        this.fragment = fragment;
     }
 
-    public OrdersActivityAdapter(final OnOrderClickListener onOrderClickListener, final Resources resources, Fragment fragment) {
+    public OrdersActivityAdapter(final OnOrderClickListener onOrderClickListener, final Resources resources) {
         this.resources = resources;
         this.orders = new ArrayList<>(0);
         this.onOrderClickListener = onOrderClickListener;
 
-        this.fragment = fragment;
     }
 
     @NonNull
     @Override
     public OrderHolder onCreateViewHolder(@NonNull final ViewGroup parent, final int viewType) {
         final View inflate = LayoutInflater.from(parent.getContext()).inflate(R.layout.single_order, parent, false);
-        final OrderHolder holder = new OrderHolder(inflate, fragment);
+        final OrderHolder holder = new OrderHolder(inflate);
         holder.itemView.setOnClickListener(view -> this.onOrderClickListener.onClick(this.orders.get(holder.getAdapterPosition())));
         return holder;
     }
@@ -135,15 +133,9 @@ public class OrdersActivityAdapter extends RecyclerView.Adapter<OrdersActivityAd
         TextView rating;
         TextView comments;
 
-        Fragment fragment;
-        MapFragment mapFragment;
-
-
-        OrderHolder(final View itemView, Fragment fragment) {
+        OrderHolder(final View itemView) {
 
             super(itemView);
-
-            this.fragment = fragment;
 
             cv = itemView.findViewById(R.id.single_item);
             fullname = itemView.findViewById(R.id.user_name_so);
@@ -158,10 +150,6 @@ public class OrdersActivityAdapter extends RecyclerView.Adapter<OrdersActivityAd
             hashtags = itemView.findViewById(R.id.hashtags_so);
             rating = itemView.findViewById(R.id.rating_so2);
             comments = itemView.findViewById(R.id.comments_so);
-            mapFragment = (MapFragment) fragment.getChildFragmentManager().findFragmentById(R.id.map_so);
-//            mapFragment = itemView.findViewById(R.id.map_so);
-
-
         }
     }
 }
