@@ -52,7 +52,6 @@ public class FeedActivity extends AppCompatActivity {
     private FloatingActionButton createOrderFab;
     private SharedPreferences preferences;
     private OrderService orderService;
-    private List<OrderUi> orderUisForAdapter;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -79,10 +78,10 @@ public class FeedActivity extends AppCompatActivity {
             @Override
             public void onResponse(Call<List<OrderUi>> call, Response<List<OrderUi>> response) {
                 if (response.isSuccessful()) {
-                    orderUisForAdapter = response.body();
                     Toast.makeText(FeedActivity.this,
                             response.code() + " " + response.message(),
                             Toast.LENGTH_LONG).show();
+                    FeedActivity.this.adapter.refresh(response.body());
                 } else {
                     Toast.makeText(FeedActivity.this,
                             response.code() + " " + response.message(),
@@ -96,7 +95,7 @@ public class FeedActivity extends AppCompatActivity {
         });
 
 
-        adapter = new OrdersActivityAdapter(orderUisForAdapter , new OnOrderClickListener() {
+        adapter = new OrdersActivityAdapter(new OnOrderClickListener() {
             @Override
             public void onClick(OrderUi orderUi) {
                 Intent intent = new Intent(FeedActivity.this, OrderDetailsActivity.class);
