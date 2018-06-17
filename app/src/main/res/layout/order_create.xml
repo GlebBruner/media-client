@@ -211,7 +211,7 @@
         <EditText
             android:id="@+id/descr_edit_co"
             android:layout_width="350dp"
-            android:layout_height="34dp"
+            android:layout_height="74dp"
             android:layout_marginEnd="16dp"
             android:layout_marginStart="16dp"
             android:layout_marginTop="8dp"
@@ -226,7 +226,7 @@
             android:id="@+id/map_co"
             android:name="com.google.android.gms.maps.MapFragment"
             android:layout_width="350dp"
-            android:layout_height="164dp"
+            android:layout_height="324dp"
             android:layout_marginEnd="16dp"
             android:layout_marginStart="16dp"
             android:layout_marginTop="8dp"

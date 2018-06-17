@@ -8,6 +8,7 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.google.android.gms.maps.GoogleMap;
@@ -47,6 +48,11 @@ public class OrdersActivityAdapter extends RecyclerView.Adapter<OrdersActivityAd
 
     }
 
+    @Override
+    public void onAttachedToRecyclerView(@NonNull RecyclerView recyclerView) {
+        super.onAttachedToRecyclerView(recyclerView);
+    }
+
     @NonNull
     @Override
     public OrderHolder onCreateViewHolder(@NonNull final ViewGroup parent, final int viewType) {
@@ -62,6 +68,17 @@ public class OrdersActivityAdapter extends RecyclerView.Adapter<OrdersActivityAd
         holder.title.setText(orders.get(position).getTitle());
         holder.description.setText(orders.get(position).getDescription());
 
+        Calendar calendarCreationDate = Calendar.getInstance();
+        calendarCreationDate.setTime(orders.get(position).getCreationDate());
+
+        StringBuilder stringBuilder = new StringBuilder();
+        stringBuilder.append(calendarCreationDate.get(Calendar.DAY_OF_MONTH))
+                .append("-")
+                .append(calendarCreationDate.get(Calendar.MONTH + 1))
+                .append("-")
+                .append(calendarCreationDate.get(Calendar.YEAR));
+        holder.creationDate.setText(stringBuilder.toString());
+
         Date date = orders.get(position).getDeadline();
         Calendar calendar = Calendar.getInstance();
         calendar.setTime(date);
@@ -72,14 +89,25 @@ public class OrdersActivityAdapter extends RecyclerView.Adapter<OrdersActivityAd
         String timeDeadLineHour = String.valueOf(calendar.get(Calendar.HOUR_OF_DAY));
         String timeDeadLineMinute = String.valueOf(calendar.get(Calendar.MINUTE));
 
-        holder.dateDL.setText(dateDeadLineDay + " " + dateDeadLineMonth + " " + dateDeadLineYear);
-        holder.timeDL.setText(timeDeadLineHour + " " + timeDeadLineMinute);
+
+        holder.dateDL.setText(dateDeadLineDay + "-" + dateDeadLineMonth + "-" + dateDeadLineYear);
+        holder.timeDL.setText(timeDeadLineHour + ":" + timeDeadLineMinute);
 
 
         holder.phoroCount.setText(String.valueOf(orders.get(position).getPhotoCount()));
         holder.videoCount.setText(String.valueOf(orders.get(position).getVideoCount()));
-        holder.money.setText(String.valueOf(orders.get(position).getMoney()));
         holder.rating.setText(String.valueOf(orders.get(position).getLikes() - orders.get(position).getDislikes()));
+
+        holder.money.setText(String.valueOf(orders.get(position).getMoney()));
+
+        if (orders.get(position).getMoney() != 0.0f) {
+            holder.money.setText(String.valueOf(orders.get(position).getMoney()));
+            holder.nomoneyImg.setVisibility(View.INVISIBLE);
+        } else {
+            holder.money.setText("");
+            holder.moneyImg.setVisibility(View.INVISIBLE);
+        }
+
 
         StringBuilder hashtags = new StringBuilder();
         StringBuilder category = new StringBuilder();
@@ -88,16 +116,11 @@ public class OrdersActivityAdapter extends RecyclerView.Adapter<OrdersActivityAd
         }
 
         for (String categoryy: orders.get(position).getCategories()) {
-            category.append(category);
+            category.append(categoryy);
         }
 
-
         holder.hashtags.setText(hashtags.toString());
-
         holder.category.setText(category.toString());
-
-
-        //todo MAP POINT ADD
     }
 
     @Override
@@ -132,6 +155,12 @@ public class OrdersActivityAdapter extends RecyclerView.Adapter<OrdersActivityAd
         TextView hashtags;
         TextView rating;
         TextView comments;
+        TextView creationDate;
+
+        ImageView lockedImg;
+        ImageView unlockedImg;
+        ImageView moneyImg;
+        ImageView nomoneyImg;
 
         OrderHolder(final View itemView) {
 
@@ -150,6 +179,13 @@ public class OrdersActivityAdapter extends RecyclerView.Adapter<OrdersActivityAd
             hashtags = itemView.findViewById(R.id.hashtags_so);
             rating = itemView.findViewById(R.id.rating_so2);
             comments = itemView.findViewById(R.id.comments_so);
+            creationDate = itemView.findViewById(R.id.creation_date_so);
+
+            lockedImg = itemView.findViewById(R.id.locked_so);
+            unlockedImg = itemView.findViewById(R.id.unlockedimg_so);
+
+            moneyImg = itemView.findViewById(R.id.moneyimg_so);
+            nomoneyImg = itemView.findViewById(R.id.nomoneyImg_so);
         }
     }
 }

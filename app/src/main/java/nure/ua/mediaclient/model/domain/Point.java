@@ -5,6 +5,11 @@ public class Point {
     private float latitude;
     private float longitude;
 
+    public Point() {
+        this.latitude = 0.0f;
+        this.longitude = 0.0f;
+    }
+
     public Point(float latitude, float longitude) {
         this.latitude = latitude;
         this.longitude = longitude;

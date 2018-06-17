@@ -1,5 +1,8 @@
 package nure.ua.mediaclient.model.ui;
 
+import android.os.Parcel;
+import android.os.Parcelable;
+
 import java.util.Date;
 import java.util.Set;
 
@@ -142,4 +145,6 @@ public class OrderUi {
     public void setFullName(String fullName) {
         this.fullName = fullName;
     }
+
+
 }
