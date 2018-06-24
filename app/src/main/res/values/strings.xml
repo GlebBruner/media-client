@@ -58,6 +58,7 @@
     <string name="ok">OK</string>
     <string name="chosen_date_content">%d %d %d</string>
     <string name="chosen_time_content">%d:%d</string>
+    <string name="make_order_btn">Make order</string>
 
 
 </resources>

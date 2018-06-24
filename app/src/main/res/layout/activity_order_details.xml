@@ -8,13 +8,13 @@
 
     <TextView
         android:id="@+id/vidcount_so"
-        android:layout_width="30dp"
-        android:layout_height="30dp"
-        android:layout_marginEnd="18dp"
+        android:layout_width="18dp"
+        android:layout_height="18dp"
+        android:layout_marginEnd="15dp"
         android:layout_marginStart="2dp"
         android:layout_marginTop="8dp"
         android:text="TextView"
-        app:layout_constraintEnd_toStartOf="@+id/locked_so"
+        app:layout_constraintEnd_toStartOf="@+id/favouriteimg_so"
         app:layout_constraintStart_toEndOf="@+id/videoimg_so"
         app:layout_constraintTop_toBottomOf="@+id/timedl_so" />
 
@@ -23,9 +23,11 @@
         android:layout_width="100dp"
         android:layout_height="25dp"
         android:layout_marginEnd="8dp"
+        android:layout_marginStart="18dp"
         android:layout_marginTop="8dp"
         android:text="name"
         app:layout_constraintEnd_toStartOf="@+id/title_so"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
@@ -40,8 +42,8 @@
 
     <ImageView
         android:id="@+id/photoimg_so"
-        android:layout_width="30dp"
-        android:layout_height="30dp"
+        android:layout_width="18dp"
+        android:layout_height="18dp"
         android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
         app:layout_constraintStart_toEndOf="@+id/moneycount_so"
@@ -50,8 +52,8 @@
 
     <TextView
         android:id="@+id/moneycount_so"
-        android:layout_width="30dp"
-        android:layout_height="30dp"
+        android:layout_width="18dp"
+        android:layout_height="18dp"
         android:layout_marginStart="2dp"
         android:layout_marginTop="8dp"
         android:text="TextView"
@@ -60,8 +62,8 @@
 
     <TextView
         android:id="@+id/photocount_so"
-        android:layout_width="30dp"
-        android:layout_height="30dp"
+        android:layout_width="18dp"
+        android:layout_height="18dp"
         android:layout_marginStart="2dp"
         android:layout_marginTop="8dp"
         android:text="TextView"
@@ -70,8 +72,8 @@
 
     <ImageView
         android:id="@+id/videoimg_so"
-        android:layout_width="30dp"
-        android:layout_height="30dp"
+        android:layout_width="18dp"
+        android:layout_height="18dp"
         android:layout_marginStart="4dp"
         android:layout_marginTop="8dp"
         app:layout_constraintStart_toEndOf="@+id/photocount_so"
@@ -81,11 +83,13 @@
     <TextView
         android:id="@+id/descr_so"
         android:layout_width="348dp"
-        android:layout_height="42dp"
+        android:layout_height="35dp"
         android:layout_marginEnd="18dp"
+        android:layout_marginStart="18dp"
         android:layout_marginTop="8dp"
         android:text="TextView"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/user_name_so" />
 
     <TextView
@@ -93,16 +97,18 @@
         android:layout_width="100dp"
         android:layout_height="25dp"
         android:layout_marginEnd="8dp"
+        android:layout_marginStart="18dp"
         android:layout_marginTop="8dp"
         android:text="TextView"
         app:layout_constraintEnd_toStartOf="@+id/hashtags_so"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/descr_so" />
 
     <ImageView
         android:id="@+id/moneyimg_so"
-        android:layout_width="30dp"
-        android:layout_height="30dp"
-        android:layout_marginStart="8dp"
+        android:layout_width="18dp"
+        android:layout_height="18dp"
+        android:layout_marginStart="16dp"
         android:layout_marginTop="8dp"
         app:layout_constraintStart_toEndOf="@+id/down_so"
         app:layout_constraintTop_toBottomOf="@+id/creation_date_so"
@@ -110,8 +116,8 @@
 
     <ImageView
         android:id="@+id/locked_so"
-        android:layout_width="30dp"
-        android:layout_height="30dp"
+        android:layout_width="18dp"
+        android:layout_height="18dp"
         android:layout_marginEnd="18dp"
         android:layout_marginTop="8dp"
         app:layout_constraintEnd_toEndOf="parent"
@@ -149,8 +155,8 @@
 
     <ImageView
         android:id="@+id/up_so"
-        android:layout_width="30dp"
-        android:layout_height="30dp"
+        android:layout_width="18dp"
+        android:layout_height="18dp"
         android:layout_marginStart="18dp"
         android:layout_marginTop="8dp"
         app:layout_constraintStart_toStartOf="parent"
@@ -159,18 +165,18 @@
 
     <TextView
         android:id="@+id/comments_so"
-        android:layout_width="30dp"
-        android:layout_height="30dp"
-        android:layout_marginEnd="16dp"
+        android:layout_width="18dp"
+        android:layout_height="18dp"
+        android:layout_marginEnd="31dp"
         android:layout_marginTop="8dp"
         android:text="TextView"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/locked_so" />
+        app:layout_constraintEnd_toStartOf="@+id/locked_so"
+        app:layout_constraintTop_toBottomOf="@+id/timedl_so" />
 
     <TextView
         android:id="@+id/rating_so2"
-        android:layout_width="30dp"
-        android:layout_height="30dp"
+        android:layout_width="18dp"
+        android:layout_height="18dp"
         android:layout_marginStart="2dp"
         android:layout_marginTop="8dp"
         android:text="TextView"
@@ -179,8 +185,8 @@
 
     <ImageView
         android:id="@+id/down_so"
-        android:layout_width="30dp"
-        android:layout_height="30dp"
+        android:layout_width="18dp"
+        android:layout_height="18dp"
         android:layout_marginStart="2dp"
         android:layout_marginTop="8dp"
         app:layout_constraintStart_toEndOf="@+id/rating_so2"
@@ -189,12 +195,12 @@
 
     <ImageView
         android:id="@+id/commentsimg_so"
-        android:layout_width="30dp"
-        android:layout_height="30dp"
-        android:layout_marginEnd="18dp"
+        android:layout_width="18dp"
+        android:layout_height="18dp"
+        android:layout_marginEnd="8dp"
         android:layout_marginTop="8dp"
         app:layout_constraintEnd_toStartOf="@+id/comments_so"
-        app:layout_constraintTop_toBottomOf="@+id/vidcount_so"
+        app:layout_constraintTop_toBottomOf="@+id/datedl_so"
         app:srcCompat="@drawable/baseline_comment_black_18dp" />
 
     <TextView
@@ -202,15 +208,17 @@
         android:layout_width="75dp"
         android:layout_height="25dp"
         android:layout_marginEnd="123dp"
+        android:layout_marginStart="18dp"
         android:layout_marginTop="8dp"
         android:text="TextView"
         app:layout_constraintEnd_toStartOf="@+id/datedl_so"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/category_so" />
 
     <ImageView
         android:id="@+id/unlockedimg_so"
-        android:layout_width="30dp"
-        android:layout_height="30dp"
+        android:layout_width="18dp"
+        android:layout_height="18dp"
         android:layout_marginEnd="18dp"
         android:layout_marginTop="8dp"
         app:layout_constraintEnd_toEndOf="parent"
@@ -219,45 +227,53 @@
 
     <ImageView
         android:id="@+id/shareimg_so"
-        android:layout_width="30dp"
-        android:layout_height="30dp"
-        android:layout_marginEnd="16dp"
-        android:layout_marginTop="8dp"
+        android:layout_width="18dp"
+        android:layout_height="18dp"
+        android:layout_marginEnd="4dp"
         app:layout_constraintEnd_toStartOf="@+id/commentsimg_so"
-        app:layout_constraintTop_toBottomOf="@+id/photocount_so"
-        app:srcCompat="@android:drawable/ic_menu_share" />
+        app:srcCompat="@android:drawable/ic_menu_share"
+        tools:layout_editor_absoluteY="150dp" />
 
     <ImageView
         android:id="@+id/favouriteimg_so"
-        android:layout_width="30dp"
-        android:layout_height="30dp"
-        android:layout_marginEnd="16dp"
-        android:layout_marginTop="8dp"
+        android:layout_width="18dp"
+        android:layout_height="18dp"
+        android:layout_marginEnd="4dp"
         app:layout_constraintEnd_toStartOf="@+id/shareimg_so"
-        app:layout_constraintTop_toBottomOf="@+id/photoimg_so"
-        app:srcCompat="@android:drawable/star_big_off" />
+        app:srcCompat="@android:drawable/star_big_off"
+        tools:layout_editor_absoluteY="150dp" />
 
     <fragment
         android:id="@+id/map_so"
         android:name="com.google.android.gms.maps.MapFragment"
-        android:layout_width="356dp"
-        android:layout_height="280dp"
+        android:layout_width="345dp"
+        android:layout_height="231dp"
         android:layout_marginEnd="18dp"
         android:layout_marginStart="18dp"
         android:layout_marginTop="16dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/comments_so" />
+        app:layout_constraintTop_toBottomOf="@+id/vidcount_so" />
 
     <ImageView
         android:id="@+id/nomoneyImg_so"
-        android:layout_width="30dp"
-        android:layout_height="30dp"
-        android:layout_marginStart="8dp"
+        android:layout_width="18dp"
+        android:layout_height="18dp"
+        android:layout_marginStart="16dp"
         android:layout_marginTop="8dp"
         app:layout_constraintStart_toEndOf="@+id/down_so"
         app:layout_constraintTop_toBottomOf="@+id/creation_date_so"
         app:srcCompat="@drawable/baseline_money_off_black_18dp" />
+
+    <Button
+        android:id="@+id/submit_but_od"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="18dp"
+        android:layout_marginTop="16dp"
+        android:text="@string/make_order_btn"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/map_so" />
 
 
 </android.support.constraint.ConstraintLayout>

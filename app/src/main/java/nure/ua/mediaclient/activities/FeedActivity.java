@@ -60,18 +60,14 @@ public class FeedActivity extends AppCompatActivity {
         setContentView(R.layout.feed_layout);
         tabLayout = findViewById(R.id.sliding_tabs);
         createOrderFab = findViewById(R.id.fab);
-        this.initializeNetworkClient();
         this.preferences = this.getSharedPreferences(SharedProperties.APP_PREFERENCES, Context.MODE_PRIVATE);
+        this.initializeNetworkClient();
 
         final Toolbar toolbar = findViewById(R.id.toolbar);
         this.setSupportActionBar(toolbar);
         final RecyclerView recyclerView = findViewById(R.id.content_list);
         final LinearLayoutManager llm = new LinearLayoutManager(FeedActivity.this);
         recyclerView.setLayoutManager(llm);
-
-        Objects.requireNonNull(getSupportActionBar()).setDisplayHomeAsUpEnabled(true);
-        this.fillTabLayout();
-
 
         Call<List<OrderUi>> call = this.orderService.getAllOrders();
         call.enqueue(new Callback<List<OrderUi>>() {
@@ -80,9 +76,17 @@ public class FeedActivity extends AppCompatActivity {
             public void onResponse(Call<List<OrderUi>> call, Response<List<OrderUi>> response) {
                 if (response.isSuccessful()) {
                     orderUisForAdapter = response.body();
-                    Toast.makeText(FeedActivity.this,
-                            response.code() + " " + response.message(),
-                            Toast.LENGTH_LONG).show();
+
+                    OrdersActivityAdapter adapter = new OrdersActivityAdapter(orderUisForAdapter , new OnOrderClickListener() {
+                        @Override
+                        public void onClick(OrderUi orderUi) {
+                            Intent intent = new Intent(FeedActivity.this, OrderDetailsActivity.class);
+                            intent.putExtra(OrderDetailsActivity.JSON_ORDERUI, (new Gson()).toJson(orderUi));
+                            startActivity(intent);
+                        }
+                    }, FeedActivity.this.getResources());
+                    recyclerView.setAdapter(adapter);
+
                 } else {
                     Toast.makeText(FeedActivity.this,
                             response.code() + " " + response.message(),
@@ -96,16 +100,12 @@ public class FeedActivity extends AppCompatActivity {
         });
 
 
-        adapter = new OrdersActivityAdapter(orderUisForAdapter , new OnOrderClickListener() {
-            @Override
-            public void onClick(OrderUi orderUi) {
-                Intent intent = new Intent(FeedActivity.this, OrderDetailsActivity.class);
-                intent.putExtra(OrderDetailsActivity.JSON_ORDERUI, (new Gson()).toJson(orderUi));
-                startActivity(intent);
-            }
-        }, this.getResources());
 
-        recyclerView.setAdapter(this.adapter);
+        Objects.requireNonNull(getSupportActionBar()).setDisplayHomeAsUpEnabled(true);
+        this.fillTabLayout();
+
+
+//        recyclerView.setAdapter(this.adapter);
 
 
 

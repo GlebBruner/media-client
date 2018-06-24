@@ -1,13 +1,16 @@
 package nure.ua.mediaclient.activities;
 
 import android.Manifest;
+import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.location.Location;
 import android.os.Looper;
+import android.provider.MediaStore;
 import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -18,6 +21,7 @@ import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.MapFragment;
 import com.google.android.gms.maps.OnMapReadyCallback;
+import com.google.android.gms.maps.internal.IGoogleMapDelegate;
 import com.google.android.gms.maps.model.BitmapDescriptorFactory;
 import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.MarkerOptions;
@@ -33,6 +37,8 @@ import nure.ua.mediaclient.model.ui.OrderUi;
 public class OrderDetailsActivity extends AppCompatActivity {
 
     public static String JSON_ORDERUI;
+    static final int REQUEST_IMAGE_CAPTURE = 1;
+
 
     private TextView title;
     private TextView fullname;
@@ -60,6 +66,10 @@ public class OrderDetailsActivity extends AppCompatActivity {
     private ImageView unlockedImg;
     private ImageView nomoneyImg;
 
+    private ImageView tryResult;
+
+    private Button makeorderButton;
+
     private MapFragment mapFragment;
     private GoogleMap googleMap;
     private OrderUi orderUi;
@@ -73,7 +83,18 @@ public class OrderDetailsActivity extends AppCompatActivity {
         this.orderUi = (new Gson()).fromJson(getIntent().getStringExtra(JSON_ORDERUI), OrderUi.class);
         this.setDataToFields();
 
+        this.makeorderButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                dispatchTakePictureIntent();
+            }
+        });
+
+
+
     }
+
+
 
     private void bindviews() {
         this.title = findViewById(R.id.title_so);
@@ -100,12 +121,13 @@ public class OrderDetailsActivity extends AppCompatActivity {
         this.lockedImg = findViewById(R.id.locked_so);
         this.unlockedImg = findViewById(R.id.unlockedimg_so);
         this.nomoneyImg = findViewById(R.id.nomoneyImg_so);
+        this.makeorderButton = findViewById(R.id.submit_but_od);
 
     }
 
     private void requestMap() {
         final MapFragment mapFragment = (MapFragment) this.getFragmentManager()
-                .findFragmentById(R.id.map_co);
+                .findFragmentById(R.id.map_so);
 
         mapFragment.getMapAsync(new OnMapReadyCallback() {
             @Override
@@ -124,8 +146,8 @@ public class OrderDetailsActivity extends AppCompatActivity {
         this.fullname.setText(orderUi.getFullName());
         this.description.setText(orderUi.getDescription());
 
-        for (String catergory : orderUi.getCategories()) {
-            this.category.setText(catergory); //todo dumb solution for SET for categories
+        for (String category : orderUi.getCategories()) {
+            this.category.setText(category); //todo dumb solution for SET for categories
         }
 
         for (String hashtag : orderUi.getHashtags()) {
@@ -139,7 +161,7 @@ public class OrderDetailsActivity extends AppCompatActivity {
         calendarCreationDate.setTime(orderUi.getCreationDate());
         stringBuilder.append(calendarCreationDate.get(Calendar.DAY_OF_MONTH))
                 .append("-")
-                .append(calendarCreationDate.get(Calendar.MONTH + 1))
+                .append(calendarCreationDate.get(Calendar.MONTH))
                 .append("-")
                 .append(calendarCreationDate.get(Calendar.YEAR));
 
@@ -157,7 +179,7 @@ public class OrderDetailsActivity extends AppCompatActivity {
 
         stringBuilder.append(calendarDeadLine.get(Calendar.DAY_OF_MONTH))
                 .append("-")
-                .append(calendarDeadLine.get(Calendar.MONTH + 1))
+                .append(calendarDeadLine.get(Calendar.MONTH))
                 .append("-")
                 .append(calendarDeadLine.get(Calendar.YEAR));
 
@@ -174,8 +196,8 @@ public class OrderDetailsActivity extends AppCompatActivity {
             this.moneyImg.setVisibility(View.INVISIBLE);
         }
 
-        this.photo.setText(orderUi.getPhotoCount());
-        this.video.setText(orderUi.getVideoCount());
+        this.photo.setText(String.valueOf(orderUi.getPhotoCount()));
+        this.video.setText(String.valueOf(orderUi.getPhotoCount()));
 
         if (orderUi.isPrivate()) {
             this.unlockedImg.setVisibility(View.INVISIBLE);
@@ -183,7 +205,19 @@ public class OrderDetailsActivity extends AppCompatActivity {
             this.lockedImg.setVisibility(View.INVISIBLE);
         }
 
-        this.rating.setText(String.valueOf(new Random().nextInt(101)));
+        this.comments.setText(String.valueOf(new Random().nextInt(101)));
     }
 
+    private void dispatchTakePictureIntent() {
+        Intent takePictureIntent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
+        if (takePictureIntent.resolveActivity(getPackageManager()) != null) {
+            startActivityForResult(takePictureIntent, REQUEST_IMAGE_CAPTURE);
+        }
+
+    }
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+    }
 }

@@ -15,13 +15,11 @@
 
         <TextView
             android:id="@+id/vidcount_so"
-            android:layout_width="30dp"
-            android:layout_height="30dp"
-            android:layout_marginEnd="18dp"
+            android:layout_width="18dp"
+            android:layout_height="18dp"
             android:layout_marginStart="2dp"
             android:layout_marginTop="8dp"
-            android:text="TextView"
-            app:layout_constraintEnd_toStartOf="@+id/locked_so"
+            android:text=""
             app:layout_constraintStart_toEndOf="@+id/videoimg_so"
             app:layout_constraintTop_toBottomOf="@+id/timedl_so" />
 
@@ -30,10 +28,14 @@
             android:layout_width="100dp"
             android:layout_height="25dp"
             android:layout_marginEnd="8dp"
+            android:layout_marginStart="18dp"
             android:layout_marginTop="8dp"
-            android:text="name"
+            android:background="@drawable/border"
+            android:text=""
             android:textAlignment="center"
+            android:textStyle="bold"
             app:layout_constraintEnd_toStartOf="@+id/title_so"
+            app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
         <TextView
@@ -42,16 +44,18 @@
             android:layout_height="25dp"
             android:layout_marginEnd="18dp"
             android:layout_marginTop="8dp"
-            android:text="TextView"
+            android:text=""
             android:textAlignment="center"
+            android:textStyle="bold"
+            android:background="@drawable/border"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
         <ImageView
             android:id="@+id/photoimg_so"
-            android:layout_width="30dp"
-            android:layout_height="30dp"
-            android:layout_marginStart="8dp"
+            android:layout_width="18dp"
+            android:layout_height="18dp"
+            android:layout_marginStart="16dp"
             android:layout_marginTop="8dp"
             app:layout_constraintStart_toEndOf="@+id/moneycount_so"
             app:layout_constraintTop_toBottomOf="@+id/datedl_so"
@@ -59,29 +63,31 @@
 
         <TextView
             android:id="@+id/moneycount_so"
-            android:layout_width="30dp"
-            android:layout_height="30dp"
+            android:layout_width="18dp"
+            android:layout_height="18dp"
             android:layout_marginStart="2dp"
             android:layout_marginTop="8dp"
-            android:text="TextView"
+            android:text=""
+            android:textStyle="bold"
             app:layout_constraintStart_toEndOf="@+id/moneyimg_so"
             app:layout_constraintTop_toBottomOf="@+id/datedl_so" />
 
         <TextView
             android:id="@+id/photocount_so"
-            android:layout_width="30dp"
-            android:layout_height="30dp"
+            android:layout_width="18dp"
+            android:layout_height="18dp"
             android:layout_marginStart="2dp"
             android:layout_marginTop="8dp"
-            android:text="TextView"
+            android:text=""
+            android:textStyle="bold"
             app:layout_constraintStart_toEndOf="@+id/photoimg_so"
             app:layout_constraintTop_toBottomOf="@+id/datedl_so" />
 
         <ImageView
             android:id="@+id/videoimg_so"
-            android:layout_width="30dp"
-            android:layout_height="30dp"
-            android:layout_marginStart="4dp"
+            android:layout_width="18dp"
+            android:layout_height="18dp"
+            android:layout_marginStart="16dp"
             android:layout_marginTop="8dp"
             app:layout_constraintStart_toEndOf="@+id/photocount_so"
             app:layout_constraintTop_toBottomOf="@+id/datedl_so"
@@ -92,9 +98,12 @@
             android:layout_width="348dp"
             android:layout_height="42dp"
             android:layout_marginEnd="18dp"
+            android:layout_marginStart="18dp"
             android:layout_marginTop="8dp"
-            android:text="TextView"
+            android:background="@drawable/border"
+            android:text=""
             app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/user_name_so" />
 
         <TextView
@@ -102,17 +111,20 @@
             android:layout_width="100dp"
             android:layout_height="25dp"
             android:layout_marginEnd="8dp"
+            android:layout_marginStart="18dp"
             android:layout_marginTop="8dp"
-            android:text="TextView"
+            android:background="@drawable/border"
+            android:text=""
             android:textAlignment="center"
             app:layout_constraintEnd_toStartOf="@+id/hashtags_so"
+            app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/descr_so" />
 
         <ImageView
             android:id="@+id/moneyimg_so"
-            android:layout_width="30dp"
-            android:layout_height="30dp"
-            android:layout_marginStart="8dp"
+            android:layout_width="18dp"
+            android:layout_height="18dp"
+            android:layout_marginStart="16dp"
             android:layout_marginTop="8dp"
             app:layout_constraintStart_toEndOf="@+id/down_so"
             app:layout_constraintTop_toBottomOf="@+id/creation_date_so"
@@ -120,8 +132,8 @@
 
         <ImageView
             android:id="@+id/locked_so"
-            android:layout_width="30dp"
-            android:layout_height="30dp"
+            android:layout_width="18dp"
+            android:layout_height="18dp"
             android:layout_marginEnd="18dp"
             android:layout_marginTop="8dp"
             app:layout_constraintEnd_toEndOf="parent"
@@ -134,8 +146,10 @@
             android:layout_height="25dp"
             android:layout_marginEnd="18dp"
             android:layout_marginTop="8dp"
-            android:text="TextView"
+            android:text=""
             android:textAlignment="center"
+            android:textStyle="italic"
+            android:background="@drawable/border"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/descr_so" />
 
@@ -144,8 +158,9 @@
             android:layout_width="75dp"
             android:layout_height="25dp"
             android:layout_marginTop="8dp"
-            android:text="TextView"
+            android:text=""
             android:textAlignment="center"
+            android:background="@drawable/border"
             app:layout_constraintEnd_toStartOf="@+id/timedl_so"
             app:layout_constraintTop_toBottomOf="@+id/hashtags_so" />
 
@@ -155,15 +170,16 @@
             android:layout_height="25dp"
             android:layout_marginEnd="18dp"
             android:layout_marginTop="8dp"
-            android:text="TextView"
+            android:text=""
             android:textAlignment="center"
+            android:background="@drawable/border"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/hashtags_so" />
 
         <ImageView
             android:id="@+id/up_so"
-            android:layout_width="30dp"
-            android:layout_height="30dp"
+            android:layout_width="18dp"
+            android:layout_height="18dp"
             android:layout_marginStart="18dp"
             android:layout_marginTop="8dp"
             app:layout_constraintStart_toStartOf="parent"
@@ -172,29 +188,30 @@
 
         <TextView
             android:id="@+id/comments_so"
-            android:layout_width="30dp"
-            android:layout_height="30dp"
-            android:layout_marginEnd="16dp"
+            android:layout_width="18dp"
+            android:layout_height="18dp"
+            android:layout_marginEnd="7dp"
             android:layout_marginTop="8dp"
-            android:text="TextView"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/locked_so" />
+            android:text=""
+            app:layout_constraintEnd_toStartOf="@+id/locked_so"
+            app:layout_constraintTop_toBottomOf="@+id/timedl_so" />
 
         <TextView
             android:id="@+id/rating_so2"
-            android:layout_width="30dp"
-            android:layout_height="30dp"
-            android:layout_marginStart="2dp"
+            android:layout_width="18dp"
+            android:layout_height="18dp"
+            android:layout_marginStart="8dp"
             android:layout_marginTop="8dp"
-            android:text="TextView"
+            android:text=""
+            android:textStyle="bold"
             app:layout_constraintStart_toEndOf="@+id/up_so"
             app:layout_constraintTop_toBottomOf="@+id/creation_date_so" />
 
         <ImageView
             android:id="@+id/down_so"
-            android:layout_width="30dp"
-            android:layout_height="30dp"
-            android:layout_marginStart="2dp"
+            android:layout_width="18dp"
+            android:layout_height="18dp"
+            android:layout_marginStart="8dp"
             android:layout_marginTop="8dp"
             app:layout_constraintStart_toEndOf="@+id/rating_so2"
             app:layout_constraintTop_toBottomOf="@+id/creation_date_so"
@@ -202,12 +219,12 @@
 
         <ImageView
             android:id="@+id/commentsimg_so"
-            android:layout_width="30dp"
-            android:layout_height="30dp"
-            android:layout_marginEnd="18dp"
+            android:layout_width="18dp"
+            android:layout_height="18dp"
+            android:layout_marginStart="2dp"
             android:layout_marginTop="8dp"
-            app:layout_constraintEnd_toStartOf="@+id/comments_so"
-            app:layout_constraintTop_toBottomOf="@+id/vidcount_so"
+            app:layout_constraintStart_toEndOf="@+id/shareimg_so"
+            app:layout_constraintTop_toBottomOf="@+id/timedl_so"
             app:srcCompat="@drawable/baseline_comment_black_18dp" />
 
         <TextView
@@ -215,16 +232,19 @@
             android:layout_width="75dp"
             android:layout_height="25dp"
             android:layout_marginEnd="123dp"
+            android:layout_marginStart="18dp"
             android:layout_marginTop="8dp"
-            android:text="TextView"
+            android:background="@drawable/border"
+            android:text=""
             android:textAlignment="center"
             app:layout_constraintEnd_toStartOf="@+id/datedl_so"
+            app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/category_so" />
 
         <ImageView
             android:id="@+id/unlockedimg_so"
-            android:layout_width="30dp"
-            android:layout_height="30dp"
+            android:layout_width="18dp"
+            android:layout_height="18dp"
             android:layout_marginEnd="18dp"
             android:layout_marginTop="8dp"
             app:layout_constraintEnd_toEndOf="parent"
@@ -233,29 +253,31 @@
 
         <ImageView
             android:id="@+id/shareimg_so"
-            android:layout_width="30dp"
-            android:layout_height="30dp"
-            android:layout_marginEnd="16dp"
+            android:layout_width="18dp"
+            android:layout_height="18dp"
+            android:layout_marginStart="2dp"
             android:layout_marginTop="8dp"
-            app:layout_constraintEnd_toStartOf="@+id/commentsimg_so"
-            app:layout_constraintTop_toBottomOf="@+id/photocount_so"
+            app:layout_constraintStart_toEndOf="@+id/favouriteimg_so"
+            app:layout_constraintTop_toBottomOf="@+id/datedl_so"
             app:srcCompat="@android:drawable/ic_menu_share" />
 
         <ImageView
             android:id="@+id/favouriteimg_so"
-            android:layout_width="30dp"
-            android:layout_height="30dp"
-            android:layout_marginEnd="16dp"
+            android:layout_width="18dp"
+            android:layout_height="18dp"
+            android:layout_marginBottom="32dp"
+            android:layout_marginStart="8dp"
             android:layout_marginTop="8dp"
-            app:layout_constraintEnd_toStartOf="@+id/shareimg_so"
-            app:layout_constraintTop_toBottomOf="@+id/photoimg_so"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/vidcount_so"
+            app:layout_constraintTop_toBottomOf="@+id/datedl_so"
             app:srcCompat="@android:drawable/star_big_off" />
 
         <ImageView
             android:id="@+id/nomoneyImg_so"
-            android:layout_width="30dp"
-            android:layout_height="30dp"
-            android:layout_marginStart="8dp"
+            android:layout_width="18dp"
+            android:layout_height="18dp"
+            android:layout_marginStart="16dp"
             android:layout_marginTop="8dp"
             app:layout_constraintStart_toEndOf="@+id/down_so"
             app:layout_constraintTop_toBottomOf="@+id/creation_date_so"

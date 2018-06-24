@@ -142,7 +142,7 @@ public class CreateOrderActivity extends AppCompatActivity {
 
         final OrderDTO dto = new OrderDTO(
                 this.from(this.title),
-                Float.valueOf(this.money.getText().toString()).equals(0.0f),
+                false, // paid
                 this.isPrivate.isChecked(),
                 this.from(this.description),
                 Integer.valueOf(this.photoSpinner.getSelectedItem().toString()),
@@ -154,10 +154,20 @@ public class CreateOrderActivity extends AppCompatActivity {
                 locatedMarker,
                 new Date(),
                 this.calendarForDeadLine.getTime(),
-                Float.parseFloat(this.money.getText().toString())
+                0.0f // money
         );
 
-        Call<OrderUi> call = this.orderService.createOrder(dto); //todo maybe accept apiresponse
+        if (this.money.getText().toString().equals("") ||
+                this.money.getText().toString().equals(" ") ||
+                this.money.getText().toString().equals("0")) {
+            dto.setPaid(false);
+            dto.setMoney(0.0f);
+        } else {
+            dto.setPaid(true);
+            dto.setMoney(Float.valueOf(this.money.getText().toString()));
+        }
+
+        Call<OrderUi> call = this.orderService.createOrder(dto);
 
         call.enqueue(new Callback<OrderUi>() {
 

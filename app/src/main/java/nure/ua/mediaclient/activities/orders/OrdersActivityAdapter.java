@@ -74,7 +74,7 @@ public class OrdersActivityAdapter extends RecyclerView.Adapter<OrdersActivityAd
         StringBuilder stringBuilder = new StringBuilder();
         stringBuilder.append(calendarCreationDate.get(Calendar.DAY_OF_MONTH))
                 .append("-")
-                .append(calendarCreationDate.get(Calendar.MONTH + 1))
+                .append(calendarCreationDate.get(Calendar.MONTH))
                 .append("-")
                 .append(calendarCreationDate.get(Calendar.YEAR));
         holder.creationDate.setText(stringBuilder.toString());
@@ -84,7 +84,7 @@ public class OrdersActivityAdapter extends RecyclerView.Adapter<OrdersActivityAd
         calendar.setTime(date);
 
         String dateDeadLineYear = String.valueOf(calendar.get(Calendar.YEAR));
-        String dateDeadLineMonth = String.valueOf(calendar.get(Calendar.MONTH + 1));
+        String dateDeadLineMonth = String.valueOf(calendar.get(Calendar.MONTH));
         String dateDeadLineDay = String.valueOf(calendar.get(Calendar.DAY_OF_MONTH));
         String timeDeadLineHour = String.valueOf(calendar.get(Calendar.HOUR_OF_DAY));
         String timeDeadLineMinute = String.valueOf(calendar.get(Calendar.MINUTE));
